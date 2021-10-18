@@ -1,4 +1,4 @@
-https://maisquejogos.github.io/Cruzadinha-AO/
+https://maisquejogos.github.io/Cruzadinha-AO/app.html
 
 # Cruzadinha-AO
 FOGÃO
