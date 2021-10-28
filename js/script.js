@@ -19,7 +19,7 @@ function arrangeGame()
 function placeCorrectLetters(myArr)
 {
     var positions = ["row","column"];
-    var nextLetter = 0;var newStart = 0;
+    var nextLetter = 0; var newStart = 0;
     for(var i=0;i<myArr.length;i++)
     {
         var orientation = 
@@ -31,6 +31,7 @@ function placeCorrectLetters(myArr)
         var myColumn = $(".individual:eq(" + start +
         ")").data("column");
         //console.log(myArr[i] + " : " + orientation + " : " start + " : " + myRow + " : " + myColumn);
+        
         if(orientation == "row")
         {
             nextLetter = 1;
@@ -70,11 +71,11 @@ function placeCorrectLetters(myArr)
                  newStart);
                }
            }
-           var characters = myArr[i].slipt("");
+           var characters = myArr[i].split("");
            var nextPosition = 0;
            $.each(characters, function(key, item){
              console.log(item);
-             $(".individual:eq(" + (newStar+nextPosition) + 
+             $(".individual:eq(" + (newStart+nextPosition) + 
              ")").html(item);
              nextPosition += nextLetter;
          
