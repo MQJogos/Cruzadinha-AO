@@ -16,6 +16,14 @@ function arrangeGame()
   }
   placeCorrectLetters(myWords);
 }
+function checkOccupied(word, starting, orientation)
+{
+    var status = ""; var incrementBy = 0;
+    if(orientation == "row")
+        incrementBy = 1;
+    else if(orientation == "column")
+        incrementBy = 12;
+}
 function placeCorrectLetters(myArr)
 {
     var positions = ["row","column"];
@@ -73,6 +81,8 @@ function placeCorrectLetters(myArr)
            }
            var characters = myArr[i].split("");
            var nextPosition = 0;
+           var occupied = checkOccupied(myArr[i], newStart, 
+           orientation);
            $.each(characters, function(key, item){
              console.log(item);
              $(".individual:eq(" + (newStart+nextPosition) + 
