@@ -78,6 +78,9 @@ function placeCorrectLetters(myArr)
              $(".individual:eq(" + (newStart+nextPosition) + 
              ")").html(item);
              nextPosition += nextLetter;
+             $(".individual:eq(" + (newStart+nextPosition) + 
+             ")").attr("data-word",myArr[i]);
+             nextPosition += nextLetter;
          
          })
     }
