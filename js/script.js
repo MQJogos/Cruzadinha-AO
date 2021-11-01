@@ -1,4 +1,6 @@
-var myWords = ["FOGÃO","BALÃO","PIÃO","SABÃO","CORAÇÃO","ANÃO","LIMÃO","FEIJÃO"];
+var myWords = ["FOGÃO","BALÃO","PIÃO","SABÃO","CORAÇÃO",
+"ANÃO","LIMÃO","FEIJÃO"];
+var temWords  = [];
 $(document).ready(function(){
     arrangeGame();                   
 });
@@ -23,6 +25,19 @@ function checkOccupied(word, starting, orientation)
         incrementBy = 1;
     else if(orientation == "column")
         incrementBy = 12;
+    for(var p=starting,q=0;q<word.length;q++)
+    {
+        if($(".individual:eq(" + p + ")").attr("data-word")
+        == undefined)
+            status = "empty";
+        else
+        {
+            status = "occupied";
+            break;
+        }
+        p += incrementBy;
+    }
+    return status; 
 }
 function placeCorrectLetters(myArr)
 {
@@ -83,15 +98,18 @@ function placeCorrectLetters(myArr)
            var nextPosition = 0;
            var occupied = checkOccupied(myArr[i], newStart, 
            orientation);
-           $.each(characters, function(key, item){
-             console.log(item);
-             $(".individual:eq(" + (newStart+nextPosition) + 
-             ")").html(item);
-             nextPosition += nextLetter;
-             $(".individual:eq(" + (newStart+nextPosition) + 
-             ")").attr("data-word", myArr[i]);
-             nextPosition += nextLetter;
-         
-         })
+           if(occupied == "empty")
+           {   
+               $.each(characters, function(key, item){
+                   console.log(item);
+                   $(".individual:eq(" + (newStart+nextPosition)
+                   + ")").html(item);
+                   $(".individual:eq(" + (newStart+nextPosition) 
+                   + ")").attr("data-word", myArr[i]);
+                   nextPosition += nextLetter;
+               })
+            }
+            else
+               tempWords.push(myArr[i]);
     }
 }
