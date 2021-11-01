@@ -112,4 +112,5 @@ function placeCorrectLetters(myArr)
             else
                tempWords.push(myArr[i]);
     }
+     console.log(tempWords);
 }
