@@ -1,6 +1,6 @@
 var myWords = ["FOGÃO","BALÃO","PIÃO","SABÃO","CORAÇÃO",
 "ANÃO","LIMÃO","FEIJÃO"];
-var temWords  = [];
+var tempWords  = [];
 $(document).ready(function(){
     arrangeGame();                   
 });
