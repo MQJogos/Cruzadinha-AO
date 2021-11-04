@@ -17,6 +17,8 @@ function arrangeGame()
      }
   }
   placeCorrectLetters(myWords);
+  console.log("end of firts array \n");
+  placeCorrectLetters(tempWords);
 }
 function checkOccupied(word, starting, orientation)
 {
@@ -110,7 +112,10 @@ function placeCorrectLetters(myArr)
                })
             }
             else
+            {
                tempWords.push(myArr[i]);
+            }
+            console.log(tempWords);
     }
-     console.log(tempWords);
+     
 }
