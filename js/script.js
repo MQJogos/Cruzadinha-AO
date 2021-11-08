@@ -19,6 +19,15 @@ function arrangeGame()
   placeCorrectLetters(myWords);
   console.log("end of firts array \n");
   placeCorrectLetters(tempWords);
+  $.each($(".individual"), function(key, item){  
+      if($(item).attr("data-word") == undefined)
+          $(this).html(randomLetter());
+  })
+}
+function randomLetter()
+{
+    var alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    return alphabets.charAt(Math.floor(Math.random()*26));
 }
 function checkOccupied(word, starting, orientation)
 {
