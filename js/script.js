@@ -117,6 +117,8 @@ function placeCorrectLetters(myArr)
                    + ")").html(item);
                    $(".individual:eq(" + (newStart+nextPosition) 
                    + ")").attr("data-word", myArr[i]);
+                   $(".individual:eq(" + (newStart+nextPosition) 
+                   + ")").css("background", "pink");
                    nextPosition += nextLetter;
                })
             }
@@ -128,3 +130,5 @@ function placeCorrectLetters(myArr)
     }
      
 }
+
+
