@@ -36,6 +36,8 @@ function checkOccupied(word, starting, orientation)
         incrementBy = 1;
     else if(orientation == "column")
         incrementBy = 12;
+    else if(orientation == "diagonal")
+        incrementBy = 13;
     for(var p=starting,q=0;q<word.length;q++)
     {
         if($(".individual:eq(" + p + ")").attr("data-word")
@@ -52,7 +54,7 @@ function checkOccupied(word, starting, orientation)
 }
 function placeCorrectLetters(myArr)
 {
-    var positions = ["row","column"];
+    var positions = ["row","column","diagonal"];
     var nextLetter = 0; var newStart = 0;
     for(var i=0;i<myArr.length;i++)
     {
@@ -64,7 +66,8 @@ function placeCorrectLetters(myArr)
         ")").data("row");
         var myColumn = $(".individual:eq(" + start +
         ")").data("column");
-        //console.log(myArr[i] + " : " + orientation + " : " start + " : " + myRow + " : " + myColumn);
+        console.log(myArr[i] + " : " + orientation + " : " + 
+        start + " : " + myRow + " : " + myColumn);
         
         if(orientation == "row")
         {
@@ -75,7 +78,7 @@ function placeCorrectLetters(myArr)
                    console.log("space in row: " + myArr[i] + " : " + start + " : " + myColumn);
             }
             else
-               {   
+            {   
                    var newColumn = 12 - myArr[i].lenght;
                    newStart = $(".individual[data-row=" + myRow
                    + "][data-column=" + newColumn + 
@@ -88,7 +91,7 @@ function placeCorrectLetters(myArr)
          else if(orientation == "column")
          {
            nextLetter = 12;    
-           if((myRow*1) + myArr[i].length <=12)
+           if((myRow*1) + myArr[i].length <= 12)
            {
                newStart = start;
                console.log("space in column: " + myArr[i] + 
@@ -104,6 +107,35 @@ function placeCorrectLetters(myArr)
                  + " : " + start + " : " + myRow  + ":" +
                  newStart);
                }
+           }
+           else if(orientation == "diagonal")
+           {
+              nextLetter = 13;
+              if((myColumn*1) + myArr[i].length <= 12 &&
+              (myRow*1) + myArr[i].length <= 12)
+                  newStart = start;
+              if((myColumn*1) + myArr[i].length > 12)
+              {
+                var newColumn = 12 - myArr[i].length;
+                newStart = $(".individual[data-row=" + myRow 
+                + "][data-column=" + newColumn + 
+                "]").index();
+              }
+              if((myRow*1) + myArr[i].length > 12)
+              {
+                 var newRow = 12 - myArr[i].length;
+                 newStart = $(".individual[data-row=" + newRow 
+                 + "][data-column=" + myColumn + "]").index(); 
+              }
+              if((myColumn*1) + myArr[i].length > 12 &&
+              (myRow*1) + myArr[i].length > 12)
+              {
+                  var newColumn = 12 - myArr[i].length;
+                  var newRow = 12 - myArr[i].length;
+                  newStart = $(".individual[data-row=" + newRow
+                  + "][data-column=" + newColumn + 
+                  "]").index();
+              }
            }
            var characters = myArr[i].split("");
            var nextPosition = 0;
