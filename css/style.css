@@ -29,6 +29,7 @@ body {
 {
   width:580px;
   heigth:580px;
+  border:1px solid black;     
   float:right;
 }
 .individual
