@@ -1,3 +1,15 @@
+body {
+      margin:0;
+      padding:0;
+      background: url("bg.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      font-family:helvetica neue,san-serif;
+      text-align:center;
+      
+}
 #container
 {
   width:810px;
