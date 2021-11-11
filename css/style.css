@@ -23,7 +23,8 @@ body {
   float:left;
   text-align:center;
   font-size: 30px;
-  border:1px solid black;
+  background: #fff;
+  
 }
 #letters
 {
@@ -38,7 +39,6 @@ body {
   height:40px;
   line-height:40px;
   float:left;
-  border:1px solid black;
   border-radius:2px;
   font-size:25px;
   text-align:center;
