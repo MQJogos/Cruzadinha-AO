@@ -24,6 +24,7 @@ body {
   text-align:center;
   font-size: 30px;
   background: #fff;
+  border-radius:2px;
   
 }
 #letters
@@ -44,3 +45,12 @@ body {
   text-align:center;
   margin:3px;
 }
+.done
+{
+    text-decoration: line-through;
+}
+.colorPurple
+{
+    background: purple;
+}
+
