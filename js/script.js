@@ -150,7 +150,7 @@ function placeCorrectLetters(myArr)
                    $(".individual:eq(" + (newStart+nextPosition) 
                    + ")").attr("data-word", myArr[i]);
                    $(".individual:eq(" + (newStart+nextPosition) 
-                   + ")").css("background", "pink");
+                   + ")").css("background", "green");
                    nextPosition += nextLetter;
                })
             }
