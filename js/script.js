@@ -1,8 +1,28 @@
 var myWords = ["FOGÃO","BALÃO","PIÃO","SABÃO","CORAÇÃO",
 "ANÃO","LIMÃO","FEIJÃO"];
-var tempWords  = [];
+var tempWords  = [];var selectedWord = "";
 $(document).ready(function(){
-    arrangeGame();                   
+    arrangeGame();
+    $(".individual").click(function(){
+        $(this).addClass("colorPurple");
+        selectedWord += $(this).html();
+        console.log(selectedWord);
+    });
+    $(document).keydown(function(){
+        selectedWord = "";
+        $(".individual").removeClass("colorPurple");
+    }).keyup(function(){
+        if(myWords.indexOf(selectedWord) >= 0)
+        {
+            $("#hint p").each(function(key, item){
+                if(selectedWord == $(item).html())
+                {
+                    $(this).addClass("done");
+                }
+                    
+            });
+        }
+    });                   
 });
 function arrangeGame()
 {
@@ -17,7 +37,7 @@ function arrangeGame()
      }
   }
   placeCorrectLetters(myWords);
-  console.log("end of firts array \n");
+  //console.log("end of firts array \n");
   placeCorrectLetters(tempWords);
   $.each($(".individual"), function(key, item){  
       if($(item).attr("data-word") == undefined)
@@ -75,7 +95,7 @@ function placeCorrectLetters(myArr)
             if((myColumn*1) + myArr[i].length <=12)
             {
                    newStart = start;
-                   console.log("space in row: " + myArr[i] + " : " + start + " : " + myColumn);
+                   //console.log("space in row: " + myArr[i] + " : " + start + " : " + myColumn);
             }
             else
             {   
@@ -83,9 +103,7 @@ function placeCorrectLetters(myArr)
                    newStart = $(".individual[data-row=" + myRow
                    + "][data-column=" + newColumn + 
                    "]" ).index();
-                   console.log("no space in row: " + myArr[i] + 
-                   " : " + start + " : " + myColumn + " : " + 
-                   newStart);
+                   //console.log("no space in row: " + myArr[i] + " : " + start + " : " + myColumn + " : " + newStart);
                }
          }
          else if(orientation == "column")
@@ -94,8 +112,7 @@ function placeCorrectLetters(myArr)
            if((myRow*1) + myArr[i].length <= 12)
            {
                newStart = start;
-               console.log("space in column: " + myArr[i] + 
-               " : " + start + " : " + myRow);
+               //console.log("space in column: " + myArr[i] + " : " + start + " : " + myRow);
            }
            else
                { 
@@ -103,9 +120,7 @@ function placeCorrectLetters(myArr)
                  newStart = $(".individual[data-row=" + newRow 
                  + "][data-column=" + newColumn + 
                  "]").index();
-                 console.log("no space in column: " + myArr[i] 
-                 + " : " + start + " : " + myRow  + ":" +
-                 newStart);
+                 //console.log("no space in column: " + myArr[i] + " : " + start + " : " + myRow  + ":" +newStart);
                }
            }
            else if(orientation == "diagonal")
@@ -144,13 +159,12 @@ function placeCorrectLetters(myArr)
            if(occupied == "empty")
            {   
                $.each(characters, function(key, item){
-                   console.log(item);
+                   //console.log(item);
                    $(".individual:eq(" + (newStart+nextPosition)
                    + ")").html(item);
+                   //(".individual:eq(" + (newStart + nextPosition)+ ")").css("background", "pink");
                    $(".individual:eq(" + (newStart+nextPosition) 
                    + ")").attr("data-word", myArr[i]);
-                   $(".individual:eq(" + (newStart+nextPosition) 
-                   + ")").css("background", "yellow");
                    nextPosition += nextLetter;
                })
             }
@@ -158,9 +172,17 @@ function placeCorrectLetters(myArr)
             {
                tempWords.push(myArr[i]);
             }
-            console.log(tempWords);
+            //console.log(tempWords);
     }
      
 }
+
+
+
+
+
+            
+
+            
 
 
