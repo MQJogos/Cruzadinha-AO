@@ -6,7 +6,7 @@ body {
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      font-family:helvetica neue,san-serif;
+      font-family:Helvetica ,Sans-Serif;
       text-align:center;
       
 }
@@ -30,7 +30,7 @@ body {
 #letters
 {
   width:580px;
-  heigth:580px;    
+  height:580px;    
   float:right;
 }
 .individual
@@ -47,10 +47,9 @@ body {
 }
 .done
 {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 .colorPurple
 {
     background: purple;
 }
-
