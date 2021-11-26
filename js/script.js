@@ -124,9 +124,8 @@ function placeCorrectLetters(myArr)
            else
                { 
                  var newRow = 12 - myArr[i].length;
-                 newStart = $(".individual[data-row=" + newRow 
-                 + "][data-column=" + newColumn + 
-                 "]").index();
+                  newStart = $(".individual[data-row=" + newRow 
+                  + "][data-column=" + newColumn + "]").index();
                  //console.log("no space in column: " + myArr[i] + " : " + start + " : " + myRow  + ":" +newStart);
                }
            }
