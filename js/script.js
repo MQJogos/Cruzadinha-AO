@@ -14,19 +14,25 @@ $(document).ready(function(){
     }).keyup(function(){
         if(myWords.indexOf(selectedWord) >= 0)
         {
+            $(".colorPurple").addClass("correctlySelected");
             $("#hint p").each(function(key, item){
                 if(selectedWord == $(item).html())
-                {
+                { 
                     $(this).addClass("done");
                 }
-                    
+                if($(".done").lenght == myWords.length)  
+                {
+                    $("#hint").empty();
+                    $("#hint").append("<p id=message>PARABÉNS</p>")
+                }  
             });
         }
     });                   
 });
 function arrangeGame()
 {
-  $.each(myWords, function(key, item){
+    $("#hint").show();
+    $.each(myWords, function(key, item){
       $("#hint").append("<p>" + item + "</p>");
   });
   for(var i=1;i<=12;i++)
@@ -79,15 +85,15 @@ function placeCorrectLetters(myArr)
     for(var i=0;i<myArr.length;i++)
     {
         var orientation = 
-        positions[Math.floor(Math.random()*positions.length)];
+        positions[Math.floor(Math.random()*positions.length)]
+        ;
         var start = 
         Math.floor(Math.random()*$(".individual").length);
         var myRow = $(".individual:eq(" + start + 
         ")").data("row");
         var myColumn = $(".individual:eq(" + start +
         ")").data("column");
-        console.log(myArr[i] + " : " + orientation + " : " + 
-        start + " : " + myRow + " : " + myColumn);
+        //console.log(myArr[i] + " : " + orientation + " : " + start + " : " + myRow + " : " + myColumn);
         
         if(orientation == "row")
         {
@@ -128,13 +134,14 @@ function placeCorrectLetters(myArr)
               nextLetter = 13;
               if((myColumn*1) + myArr[i].length <= 12 &&
               (myRow*1) + myArr[i].length <= 12)
+               {
                   newStart = start;
+               }   
               if((myColumn*1) + myArr[i].length > 12)
               {
                 var newColumn = 12 - myArr[i].length;
                 newStart = $(".individual[data-row=" + myRow 
-                + "][data-column=" + newColumn + 
-                "]").index();
+                + "][data-column=" + newColumn + "]").index();
               }
               if((myRow*1) + myArr[i].length > 12)
               {
@@ -176,6 +183,13 @@ function placeCorrectLetters(myArr)
     }
      
 }
+
+
+
+
+            
+
+            
 
 
 
