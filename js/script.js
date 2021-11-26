@@ -23,7 +23,7 @@ $(document).ready(function(){
                 if($(".done").lenght == myWords.length)  
                 {
                     $("#hint").remove();
-                    $(#"hint").append("PARABÉNS")
+                    $("#hint").append("PARABÉNS")
                     
                 }  
             });
