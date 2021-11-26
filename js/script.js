@@ -1,6 +1,6 @@
 var myWords = ["FOGÃO","BALÃO","PIÃO","SABÃO","CORAÇÃO",
 "ANÃO","LIMÃO","FEIJÃO"];
-var tempWords  = [];var selectedWord = "";
+var tempWords = [];var selectedWord = "";
 $(document).ready(function(){
     arrangeGame();
     $(".individual").click(function(){
