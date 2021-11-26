@@ -22,8 +22,9 @@ $(document).ready(function(){
                 }
                 if($(".done").lenght == myWords.length)  
                 {
-                    $("#hint").empty();
-                    $("#hint").append("<p id=message>PARABÉNS</p>")
+                    $("#hint").remove();
+                    $(#"hint").append("PARABÉNS")
+                    
                 }  
             });
         }
