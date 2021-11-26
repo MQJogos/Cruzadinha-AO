@@ -24,7 +24,8 @@ body {
   text-align:center;
   font-size: 30px;
   background: #fff;
-  border-radius:2px;
+  border-radius:1px solid black;
+  display: none;
   
 }
 #letters
@@ -51,9 +52,16 @@ body {
 }
 .colorPurple
 {
-    background: purple;
+  background: purple;
 }
-
+.correctlySelected
+{
+  background: silver;
+}
+#message
+{
+  color:red;
+}
 
 
 
